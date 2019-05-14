@@ -33,14 +33,14 @@
             listVolumes: function () {
                 this.info = [];
                 var vm = this;
-                    axios.get('api/listVolumes')
+                    axios.get('api/volumes')
                     .then(function (response){
                       vm.info = response.data;
                     })
                     .catch(function (error){
                       vm.info = 'An error occurred.' + error;
                     });
-            }
+                },  
             createVolume: function () {
                 this.$router.push('/createVolume');
             },                        
@@ -49,6 +49,7 @@
             },
         },
         mounted() {
+            this.listVolumes();
         }
     };
 </script>

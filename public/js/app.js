@@ -1891,7 +1891,57 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/resources/js/components/Volumes.vue: Unexpected token, expected \",\" (44:8)\n\n\u001b[0m \u001b[90m 42 | \u001b[39m                })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 43 | \u001b[39m        }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 | \u001b[39m        createVolume\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m () {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 45 | \u001b[39m            \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$router\u001b[33m.\u001b[39mpush(\u001b[32m'/createVolume'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 46 | \u001b[39m        }\u001b[33m,\u001b[39m                        \u001b[0m\n\u001b[0m \u001b[90m 47 | \u001b[39m        goBack() {\u001b[0m\n    at Parser.raise (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:6322:17)\n    at Parser.unexpected (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:7638:16)\n    at Parser.expect (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:7624:28)\n    at Parser.parseObj (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9108:14)\n    at Parser.parseExprAtom (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8745:21)\n    at Parser.parseExprSubscripts (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8385:23)\n    at Parser.parseMaybeUnary (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8365:21)\n    at Parser.parseExprOps (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8252:23)\n    at Parser.parseMaybeConditional (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8225:23)\n    at Parser.parseMaybeAssign (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8172:21)\n    at Parser.parseObjectProperty (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9239:101)\n    at Parser.parseObjPropValue (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9264:101)\n    at Parser.parseObjectMember (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9188:10)\n    at Parser.parseObj (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9112:25)\n    at Parser.parseExprAtom (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8745:21)\n    at Parser.parseExprSubscripts (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8385:23)\n    at Parser.parseMaybeUnary (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8365:21)\n    at Parser.parseExprOps (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8252:23)\n    at Parser.parseMaybeConditional (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8225:23)\n    at Parser.parseMaybeAssign (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8172:21)\n    at Parser.parseMaybeAssign (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8211:25)\n    at Parser.parseExpression (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:8120:23)\n    at Parser.parseStatementContent (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9892:23)\n    at Parser.parseStatement (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9763:17)\n    at Parser.parseBlockOrModuleBlockBody (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:10340:25)\n    at Parser.parseBlockBody (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:10327:10)\n    at Parser.parseTopLevel (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:9692:10)\n    at Parser.parse (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:11209:17)\n    at parse (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/parser/lib/index.js:11245:38)\n    at parser (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/joel/IPL/LTI/Projetos/Project-LTI---Part-2/node_modules/@babel/core/lib/transform.js:34:34)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)\n    at process._tickCallback (internal/process/next_tick.js:180:9)");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+module.exports = {
+  data: function data() {
+    return {
+      info: [],
+      count: 0,
+      name: name
+    };
+  },
+  methods: {
+    listVolumes: function listVolumes() {
+      this.info = [];
+      var vm = this;
+      axios.get('api/volumes').then(function (response) {
+        vm.info = response.data;
+      })["catch"](function (error) {
+        vm.info = 'An error occurred.' + error;
+      });
+    },
+    createVolume: function createVolume() {
+      this.$router.push('/createVolume');
+    },
+    goBack: function goBack() {
+      this.$router.push('/login');
+    }
+  },
+  mounted: function mounted() {
+    this.listVolumes();
+  }
+};
 
 /***/ }),
 
