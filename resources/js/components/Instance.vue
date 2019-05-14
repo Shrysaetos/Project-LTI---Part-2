@@ -8,23 +8,31 @@
     	<table class="table">
         	<thead>
         	    <tr>
-        	        <th>a</th>
-        	        <th>b</th>
-        	        <th>c</th>
-                    <th>d</th>
-                    <th>e</th>
-                    <th>f</th>
-                    <th>g</th>
+        	        <th>Nome</th>
+        	        <th>Nome da Imagem</th>
+        	        <th>Endereço IP</th>
+                    <th>Flavor</th>
+                    <th>Par de chaves</th>
+                    <th>Status</th>
+                    <th>Zona de disponibilidade</th>
+                    <th>Tarefa</th>
+                    <th>Estado de energia</th>
+                    <th>Ações</th>
         	    </tr>
        		</thead>
         	<tbody>
-                <tr v-for='f in flavors'>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr v-for='i in instances.servers'>
+                    <td>{{i.name}}</td>
+                    <td v-if='i.image==""'>-</td>
+                    <td v-if='i.image!=""'>{{i.image}}</td>
+                    <td>{{i.addresses.shared[0].addr}}</td>
+                    <td>Como ir buscar o nome do flavor em vez do ID</td>
+                    <td>{{i.key_name}}</td>
+                    <td>{{i["OS-EXT-STS:vm_state"]}}</td>
+                    <td>{{i["OS-EXT-AZ:availability_zone"]}}</td>
+                    <td v-if='i["OS-EXT-STS:task_state"] == null'>Nenhuma</td>
+                    <td v-if='i["OS-EXT-STS:task_state"] != null'>{{i["OS-EXT-STS:task_state"]}}</td>
+                    <td>{{i["OS-EXT-STS:power_state"]}}</td>
                     <td>
                         <button class="btn btn-info" v-on:click.prevent="editInstance">Edit</button>
                         <button type="button" class="btn btn-danger" v-on:click.prevent="deleteInstance(f)">Delete</button>

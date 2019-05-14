@@ -10,16 +10,19 @@ use GuzzleHttp\Psr7\Request;
 
 class FlavorController extends Controller
 {
-    public function getFlavors() {
+    public function getFlavors(){
+    	$client = new \GuzzleHttp\Client();
+    	$url = 'http://46.101.65.213/compute/v2.1/flavors';
+    	$token = 'gAAAAABc2uenc_nH74-soyciqiA0kE27adLoNBPUO76n8AYzwGX5ZQvTywk-X3lnxGjiRAg9AoQn9UXYMmyLOQ5WnE6aqoQQOUb3RCiLfdqQzofNbvx7B9Nw74Rb5F2aIdBA4U5TescRKWbyZaL5DO3lUa2IMjuxg_nZsFRQk-RsDzaGPKoZWEs';
 
     	
-		$client = new \GuzzleHttp\Client();
-		$headers = [
-			'x-auth-token' => ['gAAAAABczHR5V4Wscw9oxmcxPpocLAEk88saOxw9MBYAejFlQBGrB-eKmN3a0b_0sx2Suf3rE53lztyM7uijnrTirnzMa2iI0rRgfRW2_sei3pvfbYuS1U8NRA3ANw48dhkIKdvjhcGj0654O-5awNRZL_PFxY3jrBjLI_iQqdzuQ6TaHOszI4U']
-		];
-		$table = $client->request('GET', 'http://127.0.0.1:8080/compute/v2.1/flavors', $headers);
+    	$response = $client->request('GET', $url, [
+    		'headers' => [
+    			'x-auth-token' => $token,
+    		]
+		]);
 
-		return $table;
+
+		return $response;
     }
-
 }

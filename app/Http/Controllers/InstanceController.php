@@ -11,16 +11,20 @@ use GuzzleHttp\Psr7\Request;
 class InstanceController extends Controller
 {
 
-	public function getInstances() {
+    public function getInstances(){
+    	$client = new \GuzzleHttp\Client();
+    	$url = 'http://46.101.65.213/compute/v2.1/servers/detail';
+    	$token = 'gAAAAABc2vAzxvkaUxnqydhbFClSLFEfdBX_sYwUynoX--LRhc_wSekY4Yf7rLUtjLS13emsGyf1zegZBQZq68iL0VM2g4LUboA1j83PMJipVjTDq_GHH784ZuOkQR6-80gmaCAV6hI9CFGDw1ePj16IQkun4FrAvqsZwnggeYxbIbCJllXFyTo';
 
     	
-		$client = new \GuzzleHttp\Client();
-		$headers = [
-			'x-auth-token' => ['gAAAAABczHR5V4Wscw9oxmcxPpocLAEk88saOxw9MBYAejFlQBGrB-eKmN3a0b_0sx2Suf3rE53lztyM7uijnrTirnzMa2iI0rRgfRW2_sei3pvfbYuS1U8NRA3ANw48dhkIKdvjhcGj0654O-5awNRZL_PFxY3jrBjLI_iQqdzuQ6TaHOszI4U']
-		];
-		$table = $client->request('GET', 'http://127.0.0.1:8080/compute/v2.1/servers', $headers);
+    	$response = $client->request('GET', $url, [
+    		'headers' => [
+    			'x-auth-token' => $token,
+    		]
+		]);
 
-		return $table;
+
+		return $response;
     }
 
 }
