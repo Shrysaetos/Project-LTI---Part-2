@@ -34,28 +34,18 @@
                         
                         <ul class="nav justify-content-end">
                             <li class="nav-item">
-                                <router-link class="nav-link" to="/">Auctions</router-link>
+                                <router-link class="nav-link" to="/volumes">Volumes</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link" to="/myauctions">My Auctions</router-link>
+                                <router-link class="nav-link" to="/instances">Instances</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link" to="/acquired">Acquired</router-link>
+                                <router-link class="nav-link" to="/flavors">Flavors</router-link>
                             </li>
                             <li class="nav-item">
                                 <router-link to="/login" class="btn btn-secondary" role="button">Login</router-link>
                             </li>
 
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tag="button">Hello, Nome</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <router-link to="/profile" class="dropdown-item">Edit my account</router-link>
-                                    <router-link to="/changepassword" class="dropdown-item">Change my password</router-link>
-                                    <a class="dropdown-item" v-on:click.prevent="logout">Logout</a>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </header>

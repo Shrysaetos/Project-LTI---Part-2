@@ -23,8 +23,17 @@ Vue.use(Toasted, {
 });
 
 const LoginComponent = Vue.component('login-component', require('./components/Login.vue').default);
+
+//Instances
+const InstancesComponent = Vue.component('instances-component', require('./components/Instance.vue').default);
+
+//Flavors
+const FlavorsComponent = Vue.component('flavors-component', require('./components/Flavor.vue').default);
+
+//Volumes
 const CreateVolumeComponent = Vue.component('createVolume-component', require('./components/CreateVolume.vue').default);
-const VolumesComponent = Vue.component('volumes-component', require('./components/Volumes.vue').default);
+const VolumesComponent = Vue.component('volumes-component', require('./components/Volume.vue').default);
+
 
 
 
@@ -51,7 +60,16 @@ const routes = [
 		name: "volumes",
 		component: VolumesComponent
 	},
-
+	{
+		path: "/instances",
+		name: "instances",
+		component: InstancesComponent
+	},
+	{
+		path: "/flavors",
+		name: "flavors",
+		component: FlavorsComponent
+	}
 ];
 
 const router = new VueRouter({

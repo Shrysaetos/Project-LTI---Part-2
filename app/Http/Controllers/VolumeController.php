@@ -27,10 +27,12 @@ class VolumeController extends Controller
 		return $response;
     }
 
+
     public function listVolumes(){
     	$client = new \GuzzleHttp\Client();
     	$url = 'http://46.101.65.213/volume/v3/58293217310f47b69785e31aaaad5987/volumes';
     	$token = 'gAAAAABc2uDgZp3S78OYbJ7D0AznjCRiZDmaRsvg1_dYsUclUqVED9G__-8M_Q0NTyIUn5z9uCZc5n2WUyNoVF8WISfhJRn3gHhvD_h3X9ESohII1IF41xoT4jJgJJ5NBAR8WPedZ0nmJ-4kgcSkI1MxAVPSPh-S_HoGSxBUEvUGz0wQWQ4F3V0';
+
     	
     	$response = $client->request('GET', $url, [
     		'headers' => [

@@ -25,3 +25,11 @@ Route::middleware('auth:api')->post('logout', 'LoginControllerAPI@logout');
 Route::post('createVolume', 'VolumeController@createVolume');
 	//List
 Route::get('/volumes', 'VolumeController@listVolumes');
+
+Route::post('createVolume', 'VolumeController@createVolume');
+
+//Instances
+Route::get('instances', 'InstanceController@getInstances');
+
+//Flavors
+Route::get('flavors', 'FlavorController@getFlavors');
