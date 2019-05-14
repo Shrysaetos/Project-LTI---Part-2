@@ -23,6 +23,9 @@ Vue.use(Toasted, {
 });
 
 const LoginComponent = Vue.component('login-component', require('./components/Login.vue').default);
+const CreateVolumeComponent = Vue.component('createVolume-component', require('./components/CreateVolume.vue').default);
+const VolumesComponent = Vue.component('volumes-component', require('./components/Volumes.vue').default);
+
 
 
 const routes = [
@@ -37,7 +40,17 @@ const routes = [
 		path: "/login",
 		name: "login",
 		component: LoginComponent
-	}
+	},
+	{
+		path: "/createVolume",
+		name: "createVolume",
+		component: CreateVolumeComponent
+	},
+	{
+		path: "/volumes",
+		name: "volumes",
+		component: VolumesComponent
+	},
 
 ];
 
