@@ -20,5 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login', 'LoginControllerAPI@login'); 
 Route::middleware('auth:api')->post('logout', 'LoginControllerAPI@logout');
 
-//Create Volume
+//Volumes
 Route::post('createVolume', 'VolumeController@createVolume');
+Route::get('volumes', 'VolumeController@getVolumes');
+
+//Instances
+Route::get('instances', 'InstanceController@getInstances');
+
+//Flavors
+Route::get('flavors', 'FlavorController@getFlavors');

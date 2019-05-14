@@ -45,12 +45,12 @@ class VolumeController extends Controller
 		return $response;
     }
 
-    public function listVolume(){
+    public function getVolumes(){
     	$client = new \GuzzleHttp\Client();
-    	$url = ' 127.0.0.1:8080/volume/v3/6fa6b37e2d1a4e49a0704bb7ee2d9f73/volumes';
-    	$token = 'gAAAAABc2tS0qCAwf1QbBdDLJIRCcSM9bb5O311oHYLMfezod6issyEq7jcZ9jfajL4NhOM8Oksyft0Uwq8ZuCn4VUyE7lwBxPbcVnbVedLojdLzuIAQg7Z6jzZ7iDpkvVGuRuHpvMbp-lRu5HnjgOReH3DcoVRsxWjG81Y9DxFIMgJNf5eKZHQ';
+    	$url = ' 127.0.0.1:8080/volume/v3/b144a42f7435431f90fdf172e7fa0579/volumes';
+    	$token = 'gAAAAABczHR5V4Wscw9oxmcxPpocLAEk88saOxw9MBYAejFlQBGrB-eKmN3a0b_0sx2Suf3rE53lztyM7uijnrTirnzMa2iI0rRgfRW2_sei3pvfbYuS1U8NRA3ANw48dhkIKdvjhcGj0654O-5awNRZL_PFxY3jrBjLI_iQqdzuQ6TaHOszI4U';
     	
-    	$response = $client->request('GET', 'http://httpbin.org/post', [
+    	$response = $client->request('GET', $url, [
     		'headers' => [
     			'x-auth-token' => $token,
     		]

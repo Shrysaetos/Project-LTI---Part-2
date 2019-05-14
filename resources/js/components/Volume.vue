@@ -24,23 +24,23 @@
     module.exports = {
         data() {
             return {
-                info: [],
+                volumes: [],
                 count: 0,
                 name,
             };
         },
         methods: {
-            listVolumes: function () {
-                this.info = [];
+            getVolumes: function () {
+                this.volumes = [];
                 var vm = this;
-                    axios.get('api/listVolumes')
+                    axios.get('api/volumes')
                     .then(function (response){
-                      vm.info = response.data;
+                      vm.volumes = response.data;
                     })
                     .catch(function (error){
-                      vm.info = 'An error occurred.' + error;
+                      vm.volumes = 'An error occurred.' + error;
                     });
-            }
+            },
             createVolume: function () {
                 this.$router.push('/createVolume');
             },                        
@@ -49,6 +49,7 @@
             },
         },
         mounted() {
+            this.getVolumes();
         }
     };
 </script>
