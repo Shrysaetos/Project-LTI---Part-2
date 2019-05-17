@@ -31,6 +31,9 @@ Route::get('/listImages', 'VolumeController@listImages');
 
 Route::post('createVolume', 'VolumeController@createVolume');
 
+//Key Pairs
+Route::get('keypairs', 'KeypairController@getKeypairs');
+
 //Images
 Route::get('images', 'ImageController@getImages');
 
@@ -39,3 +42,6 @@ Route::get('instances', 'InstanceController@getInstances');
 
 //Flavors
 Route::get('flavors', 'FlavorController@getFlavors');
+
+//Networks
+Route::get('networks', 'NetworkController@getNetworks');

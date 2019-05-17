@@ -8,12 +8,12 @@ use GuzzleHttp\Pool;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
-class NetworkController extends Controller
+class GroupController extends Controller
 {
-    public function getNetworks(){
+    public function getGroups(){
     	$client = new \GuzzleHttp\Client();
-    	$url = 'http://46.101.65.213:9696/v2.0/networks';
-    	$token = 'gAAAAABc3wUblswZ0JsUcXX9dm5RMd3um_jp8iiNZVkcS0Y1D1WNBPBHoM_wScuOyr-XPV8dGpApglx2i0giXLYEESpUpLNdyy-zksmd9rRNYNxcQFkfg8QUlaVXnZETIbrRvs3zI3zA2uKbpxXCCCOtZOjGeGqrEZHNlROapodVujk3cNZvHjY';
+    	$url = 'http://46.101.65.213/volume/v3/58293217310f47b69785e31aaaad5987/volumes/detail';
+    	$token = 'gAAAAABc3t9pRUd2Fdr4QI5kV-tU1wHkDFQAjREJfYnhkhhOZgChh4aJxdVuQ8BWwnsZEwTIatUhsqriOVEPMc9zHSgmkk6UpICTvS4TTlCD3s5lruXJBRYV4FiYphALUSdMnZ6WvaKNTaZTEsnBVQlfGy3hihgWpoE8SNgBDeUPaHGeGkQclHg';
 
     	
     	$response = $client->request('GET', $url, [

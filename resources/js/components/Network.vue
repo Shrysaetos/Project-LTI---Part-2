@@ -8,24 +8,31 @@
     	<table class="table">
         	<thead>
         	    <tr>
-        	        <th></th>
-        	        <th></th>
-        	        <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+        	        <th>Name</th>
+        	        <th>Subnets</th>
+        	        <th>Shared</th>
+                    <th>External</th>
+                    <th>Status</th>
+                    <th>Admin State</th>
+                    <th>Availability Zones</th>
+                    <th>Port Security</th>
+                    <th>Actions</th>
         	    </tr>
        		</thead>
         	<tbody>
-                <tr v-for='n in networks'>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr v-for='n in networks.networks'>
+                    <td><router-link to='/'>{{n.name}}</router-link></td>
+                    <td>TODO</td>
+                    <td v-if='n.shared == true'>Yes</td>
+                    <td v-if='n.shared == false'>No</td>
+                    <td v-if='n["router:external"] == true'>Yes</td>
+                    <td v-if='n["router:external"] == false'>No</td>
+                    <td>{{n.status}}</td>
+                    <td v-if='n["admin_state_up"] == true'>Up</td>
+                    <td v-if='n["admin_state_up"] == false'>Down</td>
+                    <td v-for='a in n.availability_zones'>{{n.availability_zones[0]}}</td>
+                    <td v-if='n["port_security_enabled"] == true'>Enabled</td>
+                    <td v-if='n["port_security_enabled"] == false'>Disabled</td>
                     <td>
                         <button class="btn btn-info" v-on:click.prevent="editNetwork">Edit</button>
                         <button type="button" class="btn btn-danger" v-on:click.prevent="deleteNetwork(n)">Delete</button>

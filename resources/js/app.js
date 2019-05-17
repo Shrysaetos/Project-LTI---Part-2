@@ -27,6 +27,9 @@ const LoginComponent = Vue.component('login-component', require('./components/Lo
 //Instances
 const InstancesComponent = Vue.component('instances-component', require('./components/Instance.vue').default);
 
+//Networks
+const NetworksComponent = Vue.component('networks-component', require('./components/Network.vue').default);
+
 //Flavors
 const FlavorsComponent = Vue.component('flavors-component', require('./components/Flavor.vue').default);
 
@@ -37,6 +40,8 @@ const VolumesComponent = Vue.component('volumes-component', require('./component
 //Images
 const ImagesComponent = Vue.component('images-component', require('./components/Image.vue').default);
 
+//Key Pairs
+const KeypairsComponent = Vue.component('keypairs-component', require('./components/Keypair.vue').default);
 
 const routes = [
 
@@ -75,7 +80,19 @@ const routes = [
 		path: "/images",
 		name: "images",
 		component: ImagesComponent
+	},
+	{
+		path: "/keypairs",
+		name: "keypairs",
+		component: KeypairsComponent
+	},
+	{
+		path: "/networks",
+		name: "networks",
+		component: NetworksComponent
 	}
+
+
 ];
 
 const router = new VueRouter({
