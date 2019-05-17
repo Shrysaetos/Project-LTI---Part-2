@@ -57,7 +57,7 @@
                 this.$router.push('/flavors');
             },
 
-            deleteFlavor: function(flow) {
+            deleteFlavor: function(flavor) {
                 axios.delete('api/flavors' + flavor.id)
                     .then(response => {
                         this.getFlavors();
