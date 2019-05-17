@@ -13,7 +13,7 @@ class FlavorController extends Controller
     public function getFlavors(){
     	$client = new \GuzzleHttp\Client();
     	$url = 'http://46.101.65.213/compute/v2.1/flavors';
-    	$token = 'gAAAAABc2uenc_nH74-soyciqiA0kE27adLoNBPUO76n8AYzwGX5ZQvTywk-X3lnxGjiRAg9AoQn9UXYMmyLOQ5WnE6aqoQQOUb3RCiLfdqQzofNbvx7B9Nw74Rb5F2aIdBA4U5TescRKWbyZaL5DO3lUa2IMjuxg_nZsFRQk-RsDzaGPKoZWEs';
+    	$token = 'gAAAAABc3s-ihdLma5d_Zw_h4d4ZKHHM7otd07kToZ6Fl2ORo4s6MdvoEKvZbN6yU8TnlXbkPJybmfMCdUEcoe3h5rVD-05VFEPzBczGYou5UErOUI6hOzU4bedQoAO-ljz6SjWQQ6GVUruYM4VnUmBKofvI-L0g2C7uVtshlw83wt1DAwYkbjo';
 
     	
     	$response = $client->request('GET', $url, [

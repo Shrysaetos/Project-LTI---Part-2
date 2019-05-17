@@ -8,12 +8,11 @@ use GuzzleHttp\Pool;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
-class InstanceController extends Controller
+class FlavorController extends Controller
 {
-
-    public function getInstances(){
+    public function getFlavors(){
     	$client = new \GuzzleHttp\Client();
-    	$url = 'http://46.101.65.213/compute/v2.1/servers/detail';
+    	$url = 'http://46.101.65.213/image/v2/images';
     	$token = 'gAAAAABc3s-ihdLma5d_Zw_h4d4ZKHHM7otd07kToZ6Fl2ORo4s6MdvoEKvZbN6yU8TnlXbkPJybmfMCdUEcoe3h5rVD-05VFEPzBczGYou5UErOUI6hOzU4bedQoAO-ljz6SjWQQ6GVUruYM4VnUmBKofvI-L0g2C7uVtshlw83wt1DAwYkbjo';
 
     	
@@ -26,5 +25,4 @@ class InstanceController extends Controller
 
 		return $response;
     }
-
 }

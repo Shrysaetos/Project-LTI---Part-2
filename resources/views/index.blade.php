@@ -32,21 +32,40 @@
                             <strong>DevStack - LTI Parte II</strong>
                         </router-link>
                         
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/volumes">Volumes</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/instances">Instances</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/flavors">Flavors</router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link to="/login" class="btn btn-secondary" role="button">Login</router-link>
-                            </li>
-
-                    </ul>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tag="button">Compute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <router-link to="/instances" class="dropdown-item">Instances</router-link>
+                                    <router-link to="/images" class="dropdown-item">Images</router-link>
+                                    <router-link to="/flavors" class="dropdown-item">Flavors</router-link>
+                                    <router-link to="/keypairs" class="dropdown-item">Key Pairs</router-link>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tag="button">Volumes</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <router-link to="/volumes" class="dropdown-item">Volumes</router-link>
+                                    <router-link to="/groups" class="dropdown-item">Groups</router-link>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tag="button">Networking</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <router-link to="/networks" class="dropdown-item">Networks</router-link>
+                                    <router-link to="/securitygroups" class="dropdown-item">Security Groups</router-link>
+                                    <router-link to="/floatingips" class="dropdown-item">Floating IPs</router-link>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="/login" class="btn btn-secondary" role="button">Login</router-link>
+                        </li>
+                    </div>
                 </div>
             </header>
 

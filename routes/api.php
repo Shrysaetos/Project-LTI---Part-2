@@ -31,6 +31,9 @@ Route::get('/listImages', 'VolumeController@listImages');
 
 Route::post('createVolume', 'VolumeController@createVolume');
 
+//Images
+Route::get('images', 'ImageController@getImages');
+
 //Instances
 Route::get('instances', 'InstanceController@getInstances');
 

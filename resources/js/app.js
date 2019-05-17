@@ -34,7 +34,8 @@ const FlavorsComponent = Vue.component('flavors-component', require('./component
 const CreateVolumeComponent = Vue.component('createVolume-component', require('./components/CreateVolume.vue').default);
 const VolumesComponent = Vue.component('volumes-component', require('./components/Volume.vue').default);
 
-
+//Images
+const ImagesComponent = Vue.component('images-component', require('./components/Image.vue').default);
 
 
 const routes = [
@@ -69,6 +70,11 @@ const routes = [
 		path: "/flavors",
 		name: "flavors",
 		component: FlavorsComponent
+	},
+	{
+		path: "/images",
+		name: "images",
+		component: ImagesComponent
 	}
 ];
 

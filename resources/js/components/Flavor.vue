@@ -25,7 +25,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>
+                    <td
                         <button class="btn btn-info" v-on:click.prevent="editFlavor">Edit</button>
                         <button type="button" class="btn btn-danger" v-on:click.prevent="deleteFlavor(f)">Delete</button>
                     </td>
