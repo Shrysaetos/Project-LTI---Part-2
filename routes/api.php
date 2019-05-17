@@ -23,8 +23,11 @@ Route::middleware('auth:api')->post('logout', 'LoginControllerAPI@logout');
 //Volumes
 	//Create
 Route::post('createVolume', 'VolumeController@createVolume');
+Route::post('createVolume/{name}/{description}/{size}/{image}', 'VolumeController@createVolume');
+
 	//List
 Route::get('/volumes', 'VolumeController@listVolumes');
+Route::get('/listImages', 'VolumeController@listImages');
 
 Route::post('createVolume', 'VolumeController@createVolume');
 
