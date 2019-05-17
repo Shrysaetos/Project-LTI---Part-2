@@ -8,23 +8,22 @@
     	<table class="table">
         	<thead>
         	    <tr>
-        	        <th>a</th>
-        	        <th>b</th>
-        	        <th>c</th>
-                    <th>d</th>
-                    <th>e</th>
-                    <th>f</th>
-                    <th>g</th>
+        	        <th>Name</th>
+        	        <th>VCPUS</th>
+        	        <th>RAM</th>
+                    <th>Total Disk</th>
+                    <th>Public</th>
+                    <th>Actions</th>
         	    </tr>
        		</thead>
         	<tbody>
-                <tr v-for='f in flavors'>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr v-for='f in flavors.flavors'>
+                    <td>{{f.name}}</td>
+                    <td>{{f.vcpus}}</td>
+                    <td>{{f.ram}}MB</td>
+                    <td>{{f.disk}}G</td>
+                    <td v-if='f["os-flavor-access:is_public"] == true'>Yes</td>
+                    <td v-if='f["os-flavor-access:is_public"] != true'>No</td>
                     <td
                         <button class="btn btn-info" v-on:click.prevent="editFlavor">Edit</button>
                         <button type="button" class="btn btn-danger" v-on:click.prevent="deleteFlavor(f)">Delete</button>

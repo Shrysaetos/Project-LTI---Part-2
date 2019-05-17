@@ -1908,7 +1908,6 @@ module.exports = {
 //
 //
 //
-//
 module.exports = {
   data: function data() {
     return {
@@ -37558,19 +37557,23 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.flavors, function(f) {
+        _vm._l(_vm.flavors.flavors, function(f) {
           return _c("tr", [
-            _c("td"),
+            _c("td", [_vm._v(_vm._s(f.name))]),
             _vm._v(" "),
-            _c("td"),
+            _c("td", [_vm._v(_vm._s(f.vcpus))]),
             _vm._v(" "),
-            _c("td"),
+            _c("td", [_vm._v(_vm._s(f.ram) + "MB")]),
             _vm._v(" "),
-            _c("td"),
+            _c("td", [_vm._v(_vm._s(f.disk) + "G")]),
             _vm._v(" "),
-            _c("td"),
+            f["os-flavor-access:is_public"] == true
+              ? _c("td", [_vm._v("Yes")])
+              : _vm._e(),
             _vm._v(" "),
-            _c("td"),
+            f["os-flavor-access:is_public"] != true
+              ? _c("td", [_vm._v("No")])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "button",
@@ -37622,19 +37625,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("a")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("b")]),
+        _c("th", [_vm._v("VCPUS")]),
         _vm._v(" "),
-        _c("th", [_vm._v("c")]),
+        _c("th", [_vm._v("RAM")]),
         _vm._v(" "),
-        _c("th", [_vm._v("d")]),
+        _c("th", [_vm._v("Total Disk")]),
         _vm._v(" "),
-        _c("th", [_vm._v("e")]),
+        _c("th", [_vm._v("Public")]),
         _vm._v(" "),
-        _c("th", [_vm._v("f")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("g")])
+        _c("th", [_vm._v("Actions")])
       ])
     ])
   }
