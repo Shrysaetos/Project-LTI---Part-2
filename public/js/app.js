@@ -2080,7 +2080,7 @@ module.exports = {
     };
   },
   methods: {
-    getInstaces: function getInstaces() {
+    getInstances: function getInstances() {
       this.instances = [];
       var vm = this;
       axios.get('api/instances').then(function (response) {
@@ -2104,7 +2104,7 @@ module.exports = {
     }
   },
   mounted: function mounted() {
-    this.getInstaces();
+    this.getInstances();
   }
 };
 
@@ -38079,7 +38079,15 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(i.addresses.shared[0].addr))]),
             _vm._v(" "),
-            _c("td", [_vm._v("Como ir buscar o nome do flavor em vez do ID")]),
+            _c(
+              "td",
+              [
+                _c("router-link", { attrs: { to: "/flavor/" } }, [
+                  _vm._v(_vm._s(i.flavor.id))
+                ])
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(i.key_name))]),
             _vm._v(" "),
@@ -38088,7 +38096,7 @@ var render = function() {
             _c("td", [_vm._v(_vm._s(i["OS-EXT-AZ:availability_zone"]))]),
             _vm._v(" "),
             i["OS-EXT-STS:task_state"] == null
-              ? _c("td", [_vm._v("Nenhuma")])
+              ? _c("td", [_vm._v("None")])
               : _vm._e(),
             _vm._v(" "),
             i["OS-EXT-STS:task_state"] != null
@@ -38149,23 +38157,23 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Nome")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Nome da Imagem")]),
+        _c("th", [_vm._v("Image Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Endereço IP")]),
+        _c("th", [_vm._v("IP Address")]),
         _vm._v(" "),
         _c("th", [_vm._v("Flavor")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Par de chaves")]),
+        _c("th", [_vm._v("Key Pair")]),
         _vm._v(" "),
         _c("th", [_vm._v("Status")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Zona de disponibilidade")]),
+        _c("th", [_vm._v("Availability Zone")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Tarefa")]),
+        _c("th", [_vm._v("Task")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado de energia")]),
+        _c("th", [_vm._v("Power State")]),
         _vm._v(" "),
         _c("th", [_vm._v("Ações")])
       ])
@@ -38624,70 +38632,76 @@ var render = function() {
         _c(
           "tbody",
           _vm._l(_vm.volumes.volumes, function(v) {
-            return _c("tr", [
-              _c("td", [_vm._v(_vm._s(v.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(v.size) + "G")]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(v.status))]),
-              _vm._v(" "),
-              _vm.consistencygroup_id == null
-                ? _c("td", [_vm._v("-")])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.consistencygroup_id != null
-                ? _c("td", [_vm._v(_vm._s(v.consistencygroup_id))])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(v.volume_type))]),
-              _vm._v(" "),
-              v.multiattach == false ? _c("td", [_vm._v("Não")]) : _vm._e(),
-              _vm._v(" "),
-              v.multiattach == true
-                ? _c("td", [_vm._v(_vm._s(v.multiattach))])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(v.availability_zone))]),
-              _vm._v(" "),
-              v.bootable == "false" ? _c("td", [_vm._v("Não")]) : _vm._e(),
-              _vm._v(" "),
-              v.bootable == "true" ? _c("td", [_vm._v("Sim")]) : _vm._e(),
-              _vm._v(" "),
-              v.encrypted == false ? _c("td", [_vm._v("Não")]) : _vm._e(),
-              _vm._v(" "),
-              v.encrypted == true ? _c("td", [_vm._v("Sim")]) : _vm._e(),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-info",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.editVolume($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                ),
+            return _c(
+              "tr",
+              [
+                _c("td", [_vm._v(_vm._s(v.name))]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.deleteVolume(v)
+                _c("td", [_vm._v(_vm._s(v.size) + "G")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(v.status))]),
+                _vm._v(" "),
+                _vm.consistencygroup_id == null
+                  ? _c("td", [_vm._v("-")])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.consistencygroup_id != null
+                  ? _c("td", [_vm._v(_vm._s(v.consistencygroup_id))])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(v.volume_type))]),
+                _vm._v(" "),
+                _vm._l(v.attachments, function(a) {
+                  return v.attachments.length != 0
+                    ? _c("td", [_vm._v(_vm._s(a.device))])
+                    : _vm._e()
+                }),
+                _vm._v(" "),
+                v.attachments.length == 0 ? _c("td", [_vm._v("-")]) : _vm._e(),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(v.availability_zone))]),
+                _vm._v(" "),
+                v.bootable == "false" ? _c("td", [_vm._v("Não")]) : _vm._e(),
+                _vm._v(" "),
+                v.bootable == "true" ? _c("td", [_vm._v("Sim")]) : _vm._e(),
+                _vm._v(" "),
+                v.encrypted == false ? _c("td", [_vm._v("Não")]) : _vm._e(),
+                _vm._v(" "),
+                v.encrypted == true ? _c("td", [_vm._v("Sim")]) : _vm._e(),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.editVolume($event)
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ])
-            ])
+                    },
+                    [_vm._v("Edit")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.deleteVolume(v)
+                        }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  )
+                ])
+              ],
+              2
+            )
           }),
           0
         )

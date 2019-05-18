@@ -8,15 +8,15 @@
     	<table class="table">
         	<thead>
         	    <tr>
-        	        <th>Nome</th>
-        	        <th>Nome da Imagem</th>
-        	        <th>Endereço IP</th>
+        	        <th>Name</th>
+        	        <th>Image Name</th>
+        	        <th>IP Address</th>
                     <th>Flavor</th>
-                    <th>Par de chaves</th>
+                    <th>Key Pair</th>
                     <th>Status</th>
-                    <th>Zona de disponibilidade</th>
-                    <th>Tarefa</th>
-                    <th>Estado de energia</th>
+                    <th>Availability Zone</th>
+                    <th>Task</th>
+                    <th>Power State</th>
                     <th>Ações</th>
         	    </tr>
        		</thead>
@@ -26,11 +26,11 @@
                     <td v-if='i.image==""'>-</td>
                     <td v-if='i.image!=""'>{{i.image}}</td>
                     <td>{{i.addresses.shared[0].addr}}</td>
-                    <td>Como ir buscar o nome do flavor em vez do ID</td>
+                    <td> <router-link to='/flavor/'>{{i.flavor.id}}</router-link></td>
                     <td>{{i.key_name}}</td>
                     <td>{{i["OS-EXT-STS:vm_state"]}}</td>
                     <td>{{i["OS-EXT-AZ:availability_zone"]}}</td>
-                    <td v-if='i["OS-EXT-STS:task_state"] == null'>Nenhuma</td>
+                    <td v-if='i["OS-EXT-STS:task_state"] == null'>None</td>
                     <td v-if='i["OS-EXT-STS:task_state"] != null'>{{i["OS-EXT-STS:task_state"]}}</td>
                     <td>{{i["OS-EXT-STS:power_state"]}}</td>
                     <td>
@@ -50,7 +50,7 @@
             };
         },
         methods: {
-            getInstaces: function () {
+            getInstances: function () {
                 this.instances = [];
                 var vm = this;
                 axios.get('api/instances')
@@ -78,7 +78,7 @@
             }
         },
         mounted() {
-            this.getInstaces();
+            this.getInstances();
         }
     };
 </script>

@@ -30,8 +30,8 @@
                         <td v-if= 'consistencygroup_id == null'>-</td>
                         <td v-if= 'consistencygroup_id != null'>{{v.consistencygroup_id}}</td>
                         <td>{{v.volume_type}}</td>
-                        <td v-if='v.multiattach == false'>Não</td>
-                        <td v-if='v.multiattach == true'>{{v.multiattach}}</td>
+                        <td v-if= 'v.attachments.length != 0' v-for= 'a in v.attachments'>{{a.device}}</td>
+                        <td v-if= 'v.attachments.length == 0'>-</td>
                         <td>{{v.availability_zone}}</td>
                         <td v-if='v.bootable=="false"'>Não</td>
                         <td v-if='v.bootable=="true"'>Sim</td>
