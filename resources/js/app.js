@@ -43,6 +43,9 @@ const ImagesComponent = Vue.component('images-component', require('./components/
 //Key Pairs
 const KeypairsComponent = Vue.component('keypairs-component', require('./components/Keypair.vue').default);
 
+//Security Groups
+const SecurityGroupsComponent = Vue.component('security-groups-component', require('./components/SecurityGroup.vue').default);
+
 const routes = [
 
 	{
@@ -90,6 +93,11 @@ const routes = [
 		path: "/networks",
 		name: "networks",
 		component: NetworksComponent
+	},
+	{
+		path: "/security-groups",
+		name: "security-groups",
+		component: SecurityGroupsComponent
 	}
 
 

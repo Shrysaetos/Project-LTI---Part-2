@@ -45,3 +45,6 @@ Route::get('flavors', 'FlavorController@getFlavors');
 
 //Networks
 Route::get('networks', 'NetworkController@getNetworks');
+
+//Security Groups
+Route::get('security-groups', 'SecurityGroupController@getSecurityGroups');

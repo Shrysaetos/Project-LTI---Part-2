@@ -57,7 +57,7 @@
                                 <button class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tag="button">Networking</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <router-link to="/networks" class="dropdown-item">Networks</router-link>
-                                    <router-link to="/securitygroups" class="dropdown-item">Security Groups</router-link>
+                                    <router-link to="/security-groups" class="dropdown-item">Security Groups</router-link>
                                     <router-link to="/floatingips" class="dropdown-item">Floating IPs</router-link>
                                 </div>
                             </div>
