@@ -10,10 +10,25 @@ use GuzzleHttp\Psr7\Request;
 
 class NetworkController extends Controller
 {
+
+    public function getToken(){
+        $client = new \GuzzleHttp\Client();
+        $url = 'http://46.101.65.213/identity/v3/auth/tokens';
+        $body = '{ "auth": { "identity": { "methods": [ "password" ], "password": { "user": { "name": "D-D", "domain": { "name": "Default" }, "password": "D-D" } } }, "scope": { "project": { "id": "58293217310f47b69785e31aaaad5987" } } } }';
+        $response = $client->request('POST', $url, [
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
+            'body' => $body
+        ]);
+        $token = $response->getHeader('X-Subject-Token')[0];
+        return $token;
+    }
+
     public function getNetworks(){
     	$client = new \GuzzleHttp\Client();
     	$url = 'http://46.101.65.213:9696/v2.0/networks';
-    	$token = 'gAAAAABc4CPO7UTFAK9ZgZmwnJL5mfKMJ_i82o2PkFugGjnO_hZyOcQ5c7cR5Abtxqte368XLv0yuNIC1IFb4aM0DMV4Z-7iD5EZogPUtyexa5DrDuzCMU8XPdKtzQpc_-TRUPbqppGgb3IwqyMtDcpkxJHmOpe7A6z_Yaiy9STsfsUiBaCdnRo';
+    	$token = $this->getToken();
 
     	
     	$response = $client->request('GET', $url, [
