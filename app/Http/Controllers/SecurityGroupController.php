@@ -40,4 +40,20 @@ class SecurityGroupController extends Controller
 
 		return $response;
     }
+
+    public function getSecurityGroupRules($id){
+        $client = new \GuzzleHttp\Client();
+        $url = 'http://46.101.65.213:9696/v2.0/security-groups/' + id;
+        $token = $this->getToken();
+
+        
+        $response = $client->request('GET', $url, [
+            'headers' => [
+                'x-auth-token' => $token,
+            ]
+        ]);
+
+
+        return $response;
+    }
 }

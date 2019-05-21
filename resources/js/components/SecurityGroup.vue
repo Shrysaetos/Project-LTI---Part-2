@@ -20,7 +20,7 @@
                     <td>{{s.id}}</td>
                     <td>{{s.description}}</td>
                     <td>
-                        <button class="btn btn-info" v-on:click.prevent="editRules">Edit Rules</button>
+                        <button class="btn btn-info" v-on:click.prevent="manageRules(s.id)">Manage Rules</button>
                         <button type="button" class="btn btn-danger" v-on:click.prevent="deleteSecurityGroup(s)">Delete</button>
                     </td>
                 </tr>
@@ -39,7 +39,7 @@
             getSecurityGroups: function () {
                 this.securitygroups = [];
                 var vm = this;
-                axios.get('api/security-groups')
+                axios.get('api/security_groups')
                     .then(function (response){
                         vm.securitygroups = response.data;
                     })
@@ -49,7 +49,11 @@
             },
 
             goBack() {
-                this.$router.push('/security-groups');
+                this.$router.push('/security_groups');
+            },
+
+            manageRules: function (id) {
+                this.$router.push('/security_group/'+ id);
             },
 
             deleteSecurityGroup: function(securitygroup) {
