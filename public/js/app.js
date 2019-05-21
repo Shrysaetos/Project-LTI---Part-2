@@ -2398,14 +2398,17 @@ module.exports = {
     getSecurityGroups: function getSecurityGroups() {
       this.securitygroups = [];
       var vm = this;
-      axios.get('api/security-groups').then(function (response) {
+      axios.get('api/security_groups').then(function (response) {
         vm.securitygroups = response.data;
       })["catch"](function (error) {
         vm.securitygroups = 'An error occurred.' + error;
       });
     },
     goBack: function goBack() {
-      this.$router.push('/security-groups');
+      this.$router.push('/security_groups');
+    },
+    manageRules: function manageRules(id) {
+      this.$router.push('/security_groups/' + id);
     },
     deleteSecurityGroup: function deleteSecurityGroup(securitygroup) {
       var _this = this;
@@ -38774,11 +38777,11 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.editRules($event)
+                      _vm.manageRules(s.id)
                     }
                   }
                 },
-                [_vm._v("Edit Rules")]
+                [_vm._v("Manage Rules")]
               ),
               _vm._v(" "),
               _c(
@@ -54069,7 +54072,7 @@ var routes = [{
   name: "networks",
   component: NetworksComponent
 }, {
-  path: "/security-groups",
+  path: "/security_groups",
   name: "security-groups",
   component: SecurityGroupsComponent
 }];

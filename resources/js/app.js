@@ -95,7 +95,7 @@ const routes = [
 		component: NetworksComponent
 	},
 	{
-		path: "/security-groups",
+		path: "/security_groups",
 		name: "security-groups",
 		component: SecurityGroupsComponent
 	}
