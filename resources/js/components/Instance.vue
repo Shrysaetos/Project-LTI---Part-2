@@ -26,8 +26,8 @@
                     <td v-if='i.image==""'>-</td>
                     <td v-if='i.image!=""'>{{i.image}}</td>
                     <td>{{i.addresses.shared[0].addr}}</td>
-                    <td> <router-link to='/flavor/'>{{i.flavor.id}}</router-link></td>
-                    <td>{{i.key_name}}</td>
+                    <td v-for='f in flavors.flavors' v-if='i.flavor.id == f.id'> <router-link to='/flavor/id'>{{f.name}}</router-link></td>
+                    <td> <router-link to='/keypair/id'>{{i.key_name}}</router-link></td>
                     <td>{{i["OS-EXT-STS:vm_state"]}}</td>
                     <td>{{i["OS-EXT-AZ:availability_zone"]}}</td>
                     <td v-if='i["OS-EXT-STS:task_state"] == null'>None</td>
@@ -47,6 +47,7 @@
         data() {
             return {
                 instances: [],
+                flavors: [],
             };
         },
         methods: {
@@ -59,6 +60,18 @@
                     })
                     .catch(function (error){
                         vm.instances = 'An error occurred.' + error;
+                    });
+            },
+
+            getFlavors: function () {
+                this.flavors = [];
+                var vm = this;
+                axios.get('api/flavors')
+                    .then(function (response){
+                        vm.flavors = response.data;
+                    })
+                    .catch(function (error){
+                        vm.flavors = 'An error occurred.' + error;
                     });
             },
 
@@ -79,6 +92,7 @@
         },
         mounted() {
             this.getInstances();
+            this.getFlavors();
         }
     };
 </script>

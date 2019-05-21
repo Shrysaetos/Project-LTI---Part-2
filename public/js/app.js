@@ -2076,7 +2076,8 @@ module.exports = {
 module.exports = {
   data: function data() {
     return {
-      instances: []
+      instances: [],
+      flavors: []
     };
   },
   methods: {
@@ -2087,6 +2088,15 @@ module.exports = {
         vm.instances = response.data;
       })["catch"](function (error) {
         vm.instances = 'An error occurred.' + error;
+      });
+    },
+    getFlavors: function getFlavors() {
+      this.flavors = [];
+      var vm = this;
+      axios.get('api/flavors').then(function (response) {
+        vm.flavors = response.data;
+      })["catch"](function (error) {
+        vm.flavors = 'An error occurred.' + error;
       });
     },
     goBack: function goBack() {
@@ -2105,6 +2115,7 @@ module.exports = {
   },
   mounted: function mounted() {
     this.getInstances();
+    this.getFlavors();
   }
 };
 
@@ -38144,72 +38155,88 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.instances.servers, function(i) {
-          return _c("tr", [
-            _c("td", [_vm._v(_vm._s(i.name))]),
-            _vm._v(" "),
-            i.image == "" ? _c("td", [_vm._v("-")]) : _vm._e(),
-            _vm._v(" "),
-            i.image != "" ? _c("td", [_vm._v(_vm._s(i.image))]) : _vm._e(),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(i.addresses.shared[0].addr))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c("router-link", { attrs: { to: "/flavor/" } }, [
-                  _vm._v(_vm._s(i.flavor.id))
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(i.key_name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(i["OS-EXT-STS:vm_state"]))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(i["OS-EXT-AZ:availability_zone"]))]),
-            _vm._v(" "),
-            i["OS-EXT-STS:task_state"] == null
-              ? _c("td", [_vm._v("None")])
-              : _vm._e(),
-            _vm._v(" "),
-            i["OS-EXT-STS:task_state"] != null
-              ? _c("td", [_vm._v(_vm._s(i["OS-EXT-STS:task_state"]))])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(i["OS-EXT-STS:power_state"]))]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-info",
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.editInstance($event)
-                    }
-                  }
-                },
-                [_vm._v("Edit")]
-              ),
+          return _c(
+            "tr",
+            [
+              _c("td", [_vm._v(_vm._s(i.name))]),
+              _vm._v(" "),
+              i.image == "" ? _c("td", [_vm._v("-")]) : _vm._e(),
+              _vm._v(" "),
+              i.image != "" ? _c("td", [_vm._v(_vm._s(i.image))]) : _vm._e(),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(i.addresses.shared[0].addr))]),
+              _vm._v(" "),
+              _vm._l(_vm.flavors.flavors, function(f) {
+                return i.flavor.id == f.id
+                  ? _c(
+                      "td",
+                      [
+                        _c("router-link", { attrs: { to: "/flavor/id" } }, [
+                          _vm._v(_vm._s(f.name))
+                        ])
+                      ],
+                      1
+                    )
+                  : _vm._e()
+              }),
               _vm._v(" "),
               _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.deleteInstance(_vm.f)
+                "td",
+                [
+                  _c("router-link", { attrs: { to: "/keypair/id" } }, [
+                    _vm._v(_vm._s(i.key_name))
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(i["OS-EXT-STS:vm_state"]))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(i["OS-EXT-AZ:availability_zone"]))]),
+              _vm._v(" "),
+              i["OS-EXT-STS:task_state"] == null
+                ? _c("td", [_vm._v("None")])
+                : _vm._e(),
+              _vm._v(" "),
+              i["OS-EXT-STS:task_state"] != null
+                ? _c("td", [_vm._v(_vm._s(i["OS-EXT-STS:task_state"]))])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(i["OS-EXT-STS:power_state"]))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-info",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.editInstance($event)
+                      }
                     }
-                  }
-                },
-                [_vm._v("Delete")]
-              )
-            ])
-          ])
+                  },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.deleteInstance(_vm.f)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ],
+            2
+          )
         }),
         0
       )
