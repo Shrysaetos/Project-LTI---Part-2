@@ -53,7 +53,7 @@
             },
 
             manageRules: function (id) {
-                this.$router.push('/security_groups/'+id);
+                this.$router.push('/security_group/'+ id);
             },
 
             deleteSecurityGroup: function(securitygroup) {

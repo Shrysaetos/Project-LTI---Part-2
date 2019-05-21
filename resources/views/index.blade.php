@@ -48,7 +48,6 @@
                                 <button class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tag="button">Volumes</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <router-link to="/volumes" class="dropdown-item">Volumes</router-link>
-                                    <router-link to="/groups" class="dropdown-item">Groups</router-link>
                                 </div>
                             </div>
                         </li>

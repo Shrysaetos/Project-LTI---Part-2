@@ -17,7 +17,7 @@
                 <tr v-for='k in keypairs.keypairs'>
                     <td>{{k.keypair.name}}</td>
                     <td>{{k.keypair.fingerprint}}</td>
-                    <td>{{k.keypair.public_key}}</td>
+                    <td v-line-clamp="lines">{{k.keypair.public_key}}</td>
                     <td
                         <button class="btn btn-info" v-on:click.prevent="editKeypair">Edit</button>
                         <button type="button" class="btn btn-danger" v-on:click.prevent="deleteKeypair(k)">Delete</button>

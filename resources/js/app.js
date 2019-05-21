@@ -8,6 +8,12 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+import Vue       from 'vue';
+import lineClamp from 'vue-line-clamp';
+Vue.use(lineClamp, {
+	importCss: true
+});
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
@@ -45,6 +51,7 @@ const KeypairsComponent = Vue.component('keypairs-component', require('./compone
 
 //Security Groups
 const SecurityGroupsComponent = Vue.component('security-groups-component', require('./components/SecurityGroup.vue').default);
+const SGRulesComponent = Vue.component('s-g-rules-component', require('./components/SGRules.vue').default);
 
 const routes = [
 
@@ -98,6 +105,11 @@ const routes = [
 		path: "/security_groups",
 		name: "security-groups",
 		component: SecurityGroupsComponent
+	},
+	{
+		path: "/security_groups/{{id}}",
+		name: "security_groups_rules",
+		component: SGRulesComponent
 	}
 
 
@@ -109,5 +121,8 @@ const router = new VueRouter({
 
 const app = new Vue({
     router,
-    el: '#app'
+    el: '#app',
+    data: {
+    	lines: 2
+  	}
 });
