@@ -28,17 +28,15 @@ class VolumeController extends Controller
 
    public function createVolume($name, $description, $size, $image){
         $client = new \GuzzleHttp\Client();
-        $url = 'http://46.101.65.213/identity/v3/auth/tokens';
+        $url = '46.101.65.213/volume/v3/58293217310f47b69785e31aaaad5987/volumes';
         $token = $this->getToken();
-/*
+
         if ($image == 'NO_IMAGE') {
-            $body = '{ "volume": { "size":'.$size.'1, "availability_zone": null, "source_volid": null, "description": "'.$description.'", "multiattach": false, "snapshot_id": null, "backup_id": null, "name": "'.$name.'", "imageRef": null, "volume_type": null, "metadata": {}, "consistencygroup_id": null } }';
+            $body = '{ "volume": { "size":'.$size.', "availability_zone": null, "source_volid": null, "description": '.$description.', "multiattach": false, "snapshot_id": null, "backup_id": null, "name": '.$name.', "imageRef": null, "volume_type": null, "metadata": {}, "consistencygroup_id": null } }';
         }else{
 
-        $body = '{ "volume": { "size":'.$size.'1, "availability_zone": null, "source_volid": null, "description": "'.$description.'", "multiattach": false, "snapshot_id": null, "backup_id": null, "name": "'.$name.'", "imageRef": "'.$image.'", "volume_type": null, "metadata": {}, "consistencygroup_id": null } }';
-        }*/
-
-        $body= '{ "volume": { "size": 1, "availability_zone": null, "source_volid": null, "description": "test1", "multiattach": false, "snapshot_id": null, "backup_id": null, "name": "teste1", "imageRef": null, "volume_type": null, "metadata": {}, "consistencygroup_id": null } }';
+        $body = '{ "volume": { "size":'.$size.', "availability_zone": null, "source_volid": null, "description": '.$description.', "multiattach": false, "snapshot_id": null, "backup_id": null, "name": '.$name.', "imageRef": "'.$image.'", "volume_type": null, "metadata": {}, "consistencygroup_id": null } }';
+        }
 
 
 

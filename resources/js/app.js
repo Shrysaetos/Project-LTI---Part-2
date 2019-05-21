@@ -25,6 +25,7 @@ Vue.use(Toasted, {
 const LoginComponent = Vue.component('login-component', require('./components/Login.vue').default);
 
 //Instances
+const CreateInstanceComponent = Vue.component('createInstance-component', require('./components/CreateInstance.vue').default);
 const InstancesComponent = Vue.component('instances-component', require('./components/Instance.vue').default);
 
 //Networks
@@ -68,6 +69,11 @@ const routes = [
 		path: "/volumes",
 		name: "volumes",
 		component: VolumesComponent
+	},
+	{
+		path: "/createInstance",
+		name: "createInstance",
+		component: CreateInstanceComponent
 	},
 	{
 		path: "/instances",

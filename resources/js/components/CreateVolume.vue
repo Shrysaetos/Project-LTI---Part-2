@@ -45,6 +45,8 @@
 
             
         </div>
+
+        <p>Variaveis --> Name: {{name}} | Description: {{description}}</p>
         
 
         <br><br>
@@ -66,7 +68,7 @@
                 source: 'Empty volume',
                 image: '',
                 description: '',
-                size: '',
+                size: '1',
             };
         },
         methods: {
@@ -75,6 +77,16 @@
                 var vm = this;
                 if (this.source == 'Empty volume') {
                     image = 'NO_IMAGE';
+                }
+                if (this.name == ''){
+                    name = 'null';
+                } else {
+                    name = '"' + name + '"';
+                }
+                if (this.description == ''){
+                    description = 'null';
+                } else {
+                    description = '"' + description + '"';
                 }
                 axios.post('api/createVolume/' + name + '/' + description + '/' + size + '/' + image)
                 .then(function (response){

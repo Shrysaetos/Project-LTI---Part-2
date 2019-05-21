@@ -39,6 +39,9 @@ Route::get('images', 'ImageController@getImages');
 
 //Instances
 Route::get('instances', 'InstanceController@getInstances');
+	//create
+Route::get('zones', 'InstanceController@getZones');
+Route::post('createInstance/{name}/{description}/{zone}/{image}/{volumeName}/{size}/{flavor}/{networkId}/{networkName}/{keypair}', 'InstanceController@createInstance');
 
 //Flavors
 Route::get('flavors', 'FlavorController@getFlavors');
